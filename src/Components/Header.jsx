@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
 
 const Header = () => {
   const classes = useStyles();
-  let Navigate = useNavigate();
+  let navigate = useNavigate();
   const darkTheme = createTheme({
     palette: {
       primary:{
@@ -47,7 +47,7 @@ const Header = () => {
           <Container>
             <Toolbar>
               <Typography
-                onClick={() => Navigate("/")}
+                onClick={() => navigate("/")}
                 className={classes.title}
                 variant="h6"
               >
@@ -64,8 +64,10 @@ const Header = () => {
                 value={currency}
                 onChange={(e)=>setCurrency(e.target.value)}
               >
-                <MenuItem value={"USD"}>USD</MenuItem>
                 <MenuItem value={"BDT"}>BDT</MenuItem>
+                <MenuItem value={"USD"}>USD</MenuItem>
+                <MenuItem value={"INR"}>INR</MenuItem>
+                <MenuItem value={"EUR"}>EUR</MenuItem>
               </Select>
             </Toolbar>
           </Container>
