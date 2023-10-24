@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import { CryptoState } from "../Context/CryptoContext";
+import AuthModal from "./Authentication/AuthModal";
 
 // material ui style
 
@@ -69,6 +70,7 @@ const Header = () => {
                 <MenuItem value={"INR"}>INR</MenuItem>
                 <MenuItem value={"EUR"}>EUR</MenuItem>
               </Select>
+              <AuthModal/>
             </Toolbar>
           </Container>
         </AppBar>
