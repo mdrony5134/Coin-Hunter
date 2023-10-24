@@ -26,7 +26,7 @@ return (
        <Header/>
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/Coins/:id" element={<CoinPage/>}/>
+          <Route path="/coin/:id" element={<CoinPage/>}/>
         </Routes>
        </div>
       </BrowserRouter>

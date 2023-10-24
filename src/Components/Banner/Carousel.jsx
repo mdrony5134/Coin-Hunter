@@ -5,7 +5,7 @@ import axios from "axios";
 import { TrendingCoins } from "../../config/api";
 import { CryptoState } from "../../Context/CryptoContext";
 import AliceCarousel from "react-alice-carousel";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const useStyle = makeStyles(() => ({
   carousel: {

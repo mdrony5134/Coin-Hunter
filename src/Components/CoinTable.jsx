@@ -52,12 +52,12 @@ const CoinTable = () => {
     const { data } = await axios.get(CoinList(currency));
     setCoins(data);
     setLoading(false);
-    console.log(data);
+    // console.log(data);
   };
-  console.log(coins);
+  // console.log(coins);
   useEffect(() => {
     fetchCoinList();
-  }, [currency]);
+  },[currency]);
 
   const darkTheme = createTheme({
     palette: {
@@ -125,7 +125,7 @@ const CoinTable = () => {
                       const profit = row.price_change_percentage_24h >= 0;
                       return (
                         <TableRow
-                          onClick={() => navigate(`/Coins/${row.id}`)}
+                          onClick={() => navigate(`/coin/${row.id}`)}
                           key={row.name}
                           className={classes.row}
                         >
