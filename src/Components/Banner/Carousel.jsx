@@ -5,7 +5,7 @@ import axios from "axios";
 import { TrendingCoins } from "../../config/api";
 import { CryptoState } from "../../Context/CryptoContext";
 import AliceCarousel from "react-alice-carousel";
-import { Link,} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const useStyle = makeStyles(() => ({
   carousel: {
@@ -61,8 +61,8 @@ const Carousel = () => {
         />
         <span>
           {coin?.symbol}
-           &nbsp;
-          <span style={{color: profit > 0 ? "green" : "red"}}>
+          &nbsp;
+          <span style={{ color: profit > 0 ? "green" : "red" }}>
             {profit && " + "} {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>
         </span>

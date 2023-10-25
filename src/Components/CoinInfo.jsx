@@ -21,7 +21,14 @@ import { Line } from "react-chartjs-2";
 import { chartDays } from "../config/data";
 import SelectButton from "./SelectButton";
 
-ChartJs.register(LineElement, PointElement, CategoryScale, LinearScale, Legend, Tooltip);
+ChartJs.register(
+  LineElement,
+  PointElement,
+  CategoryScale,
+  LinearScale,
+  Legend,
+  Tooltip
+);
 
 const useStyle = makeStyles((theme) => ({
   container: {
@@ -83,54 +90,57 @@ const CoinInfo = ({ coin }) => {
           />
         ) : (
           <>
-          <Line
-            data={{
-              labels: historicData.map((coin) => {
-                let date = new Date(coin[0]);
-                let time =
-                  date.getHours() > 12
-                    ? `${date.getHours() - 12}:${date.getMinutes()} PM`
-                    : `${date.getHours()}:${date.getMinutes()} AM`;
+            <Line
+              data={{
+                labels: historicData.map((coin) => {
+                  let date = new Date(coin[0]);
+                  let time =
+                    date.getHours() > 12
+                      ? `${date.getHours() - 12}:${date.getMinutes()} PM`
+                      : `${date.getHours()}:${date.getMinutes()} AM`;
 
-                return days === 1 ? time : date.toLocaleDateString();
-              }),
-              datasets: [
-                { 
-                  data: historicData.map((coin) => coin[1]), 
-                  label: `Price ( Past ${days} Days ) in ${currency}`,
-                  borderColor: "gold",
-                }
-              ],
-            }}
-            options={{
-              elements:{
-                point:{
-                  radius: 1,
-                }
-              },
-              plugins:{
-                legend: true,
-              },
-              
-            }}>
-          </Line>
-          <div style={{display:"flex", justifyContent:"space-around", width:"100%", marginTop: 20}}>
-            {
-              chartDays.map((day)=>(
-                <SelectButton 
-                key={day.value}
-                onClick={()=>setDays(day.value)}
-                selected={day.value === days}
+                  return days === 1 ? time : date.toLocaleDateString();
+                }),
+                datasets: [
+                  {
+                    data: historicData.map((coin) => coin[1]),
+                    label: `Price ( Past ${days} Days ) in ${currency}`,
+                    borderColor: "gold",
+                  },
+                ],
+              }}
+              options={{
+                elements: {
+                  point: {
+                    radius: 1,
+                  },
+                },
+                plugins: {
+                  legend: true,
+                },
+              }}
+            ></Line>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                width: "100%",
+                marginTop: 20,
+              }}
+            >
+              {chartDays.map((day) => (
+                <SelectButton
+                  key={day.value}
+                  onClick={() => setDays(day.value)}
+                  selected={day.value === days}
                 >
                   {day.label}
                 </SelectButton>
-              ))
-            }
-          </div>
+              ))}
+            </div>
           </>
         )}
       </div>
-
     </ThemeProvider>
   );
 };

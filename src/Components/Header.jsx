@@ -32,14 +32,14 @@ const Header = () => {
   let navigate = useNavigate();
   const darkTheme = createTheme({
     palette: {
-      primary:{
-        main: "#fff"
+      primary: {
+        main: "#fff",
       },
       type: "dark",
     },
   });
 
-  const {currency, setCurrency, user} = CryptoState()
+  const { currency, setCurrency, user } = CryptoState();
   // console.log(currency)
 
   return (
@@ -58,20 +58,20 @@ const Header = () => {
 
               <Select
                 variant="outlined"
-                style={{ 
-                  width: 100, 
-                  height: 40, 
-                  marginRight: 15 
+                style={{
+                  width: 100,
+                  height: 40,
+                  marginRight: 15,
                 }}
                 value={currency}
-                onChange={(e)=>setCurrency(e.target.value)}
+                onChange={(e) => setCurrency(e.target.value)}
               >
                 <MenuItem value={"BDT"}>BDT</MenuItem>
                 <MenuItem value={"USD"}>USD</MenuItem>
                 <MenuItem value={"INR"}>INR</MenuItem>
                 <MenuItem value={"EUR"}>EUR</MenuItem>
               </Select>
-             {user? <SideBar/> : <AuthModal/>}
+              {user ? <SideBar /> : <AuthModal />}
             </Toolbar>
           </Container>
         </AppBar>

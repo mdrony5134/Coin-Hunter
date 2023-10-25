@@ -45,8 +45,6 @@ const CoinTable = () => {
   const { symbol, coins, loading } = CryptoState();
   const navigate = useNavigate();
 
- 
-
   const darkTheme = createTheme({
     palette: {
       primary: {
