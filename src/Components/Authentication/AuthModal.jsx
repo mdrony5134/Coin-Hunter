@@ -3,9 +3,13 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { useState } from 'react';
-import { AppBar, Button, Tab, Tabs } from '@material-ui/core';
+import { AppBar, Box, Button, Tab, Tabs } from '@material-ui/core';
 import Login from './Login';
 import SingUp from './SingUp';
+import GoogleButton from 'react-google-button';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { CryptoState } from '../../Context/CryptoContext';
+import { auth } from '../../Firebase';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -18,6 +22,15 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 20,
     width: 400,
     color: "white",
+  },
+  googleBtn:{
+    padding: 24,
+    paddingTop:0,
+    display:"flex",
+    flexDirection:"column",
+    textAlign:"center",
+    gap:20,
+    fontSize:20,
   },
 }));
 
@@ -39,6 +52,28 @@ export default function AuthModal() {
     setValue(newValue);
   };
 //   console.log(value)
+const {setAlert} = CryptoState()
+const googleProvider = new GoogleAuthProvider();
+
+const handleGoogleBtn = () =>{
+  signInWithPopup(auth, googleProvider).then(res=>{
+    setAlert({
+      open:true,
+      message:`SingIn successfully. Welcome ${res.user.email}`,
+      type:"success"
+    })
+    
+    handleClose()
+
+  }).catch((error)=>{
+    setAlert({
+        open:true,
+      message: error.message,
+      type:"error"
+    })
+    return;
+  })
+}
 
   return (
     <div>
@@ -67,6 +102,10 @@ export default function AuthModal() {
            </AppBar>
            {value === 0 && <Login handleClose={()=>handleClose()}/>}
            {value === 1 && <SingUp handleClose={()=>handleClose()}/>}
+           <Box className={classes.googleBtn}>
+            <span>OR</span>
+            <GoogleButton onClick={handleGoogleBtn} style={{width:"100%", outline:"none"}}/>
+           </Box>
           </div>
         </Fade>
       </Modal>

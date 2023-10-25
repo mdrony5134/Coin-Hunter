@@ -2356,12 +2356,24 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-google-button@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/react-google-button/-/react-google-button-0.7.2.tgz#5bb2bcb0d54e36da3cd3b712a6fac4f9209b764c"
+  integrity sha512-LPIqU2hIlc212kqks8MtKjRstquVkP3SIjxlK5B1nIfg2R7YqSusJAxZUkJA5dv/z6QeSuGyI9ujwV/VWMTyAA==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-html-parser@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/react-html-parser/-/react-html-parser-2.0.2.tgz#6dbe1ddd2cebc1b34ca15215158021db5fc5685e"
   integrity sha512-XeerLwCVjTs3njZcgCOeDUqLgNIt/t+6Jgi5/qPsO/krUWl76kWKXMeVs2LhY2gwM6X378DkhLjur0zUQdpz0g==
   dependencies:
     htmlparser2 "^3.9.0"
+
+react-icons@^4.11.0:
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.11.0.tgz#4b0e31c9bfc919608095cc429c4f1846f4d66c65"
+  integrity sha512-V+4khzYcE5EBk/BvcuYRq6V/osf11ODUM2J8hg2FDSswRrGvqiYUYPRy4OdrWaQOBj4NcpJfmHZLNaD+VH0TyA==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"

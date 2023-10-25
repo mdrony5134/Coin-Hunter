@@ -12,6 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { CryptoState } from "../Context/CryptoContext";
 import AuthModal from "./Authentication/AuthModal";
+import SideBar from "./Authentication/SideBar";
 
 // material ui style
 
@@ -38,8 +39,8 @@ const Header = () => {
     },
   });
 
-  const {currency, setCurrency} = CryptoState()
-  console.log(currency)
+  const {currency, setCurrency, user} = CryptoState()
+  // console.log(currency)
 
   return (
     <div>
@@ -70,7 +71,7 @@ const Header = () => {
                 <MenuItem value={"INR"}>INR</MenuItem>
                 <MenuItem value={"EUR"}>EUR</MenuItem>
               </Select>
-              <AuthModal/>
+             {user? <SideBar/> : <AuthModal/>}
             </Toolbar>
           </Container>
         </AppBar>

@@ -4,7 +4,7 @@ import Carousel from "./Carousel";
 
 const useStyle = makeStyles(()=>({
     banner:{
-        backgroundImage: "url(./banner2.jpg)",
+        backgroundImage: "url(../../../../../public/banner3.jpg)",
     },
     bannerContent:{
         height: 400,
@@ -41,9 +41,9 @@ const Banner = () => {
                 <Typography
                     variant="subtitle1"
                     style={{
-                        color: "darkgray",
+                        color: "#352F44",
                         fontFamily:"Montserrat",
-                        textTransform: "uppercase"
+                        textTransform: "uppercase",
                     }}
                 >
                 Get All The Info Regarding Your Favorite Crypto Currency
